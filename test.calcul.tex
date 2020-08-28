@@ -1,0 +1,213 @@
+\documentclass[a4paper,11pt]{article}
+% \usepackage[twocolumn,columnsep=1cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{environ}
+\usepackage[french]{babel}
+\usepackage[francais,nowatermark]{automultiplechoice}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathrsfs} 
+\usepackage{stmaryrd}
+\usepackage{multicol}
+\usepackage{vwcol}
+\usepackage{xcolor}
+\usepackage{microtype}
+
+
+
+\def\AMCchoiceLabel#1{}
+
+\NewEnviron{qcm}[1]{%
+  \def\arg{#1}%
+  \expandafter\element\expandafter\arg\expandafter{\BODY}}
+
+\makeatletter
+\renewcommand{\element}[2]{%
+  \AMC@prepare@element{#1}%
+  \global\csname #1@\romannumeral\AMCtok@k\endcsname={#2}%
+}
+\makeatother
+
+\AMCrandomseed{17}
+\AMCboxDimensions{size=2ex,down=.2ex}
+\AMCboxStyle {size=1.7ex,down=0ex,rule=.8pt}
+
+\geometry{left=1.5cm,right=1.5cm}
+
+\AMCinterIrep=.8ex
+
+\def\AMCbeginQuestion#1#2{\par\noindent{\bf \fbox{#1}} #2}
+\def\multiSymbole{}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\AMCnumericOpts{scoreexact=1}
+\baremeDefautS{e=-1,v=0,b=1,m=-1}
+
+
+\setlength\columnsep{1cm}
+
+\input{questions/developpement.fatorisation}
+\input{questions/developpement.factorisation.puissances}
+
+\input{questions/exp.ln}
+
+\input{questions/racine.carree}
+
+\input{questions/signe.polynome}
+
+\input{questions/fractions}
+\input{questions/fractions.numeriques}
+
+\input{questions/variables.muettes}
+\input{questions/variations}
+
+\input{questions/droites}
+
+\input{questions/trigonometrie.valeurs}
+\input{questions/trigonometrie.symetries}
+\input{questions/trigonometrie.lienSinusCosinus}
+\input{questions/trigonometrie.encadrements}
+
+\input{questions/puissances.regles}
+\input{questions/puissances.simplifications}
+\input{questions/puissances.simplifications.2variables}
+
+\input{questions/derivees.usuelles.composee}
+\input{questions/derivees.usuelles.produit.quotient}
+
+\input{questions/comparaisons}
+
+\input{questions/signe.produit.quotient}
+
+\input{questions/difficulte.test}
+
+%% fabrication des copies
+
+
+\begin{copieexamen}[2]
+\vspace{-2cm}
+
+\fbox{\begin{minipage}[t]{0.5\linewidth}
+    \champnom{%
+    \begin{minipage}[t]{0.95\linewidth}
+        NOM PRÉNOM :\\[0.5cm]
+        .\dotfill\\[0.3cm]
+        %  Numéro étudiant à coder dans la grille ci-contre :
+        \end{minipage}
+    }
+    \end{minipage}}
+\hspace{1cm}
+\begin{minipage}[t]{.4\linewidth}
+%   \small\AMCcodeH{IDetu}{4}
+  \texttt{\small\AMCcodeGrid[h]{IdEtu}{ABCDEFGHI,JKLMNOPQR,STUVWXYZ,1234}}
+\end{minipage}
+
+
+\medskip
+\hrule
+\medskip
+\noindent
+Chaque question comporte exactement une bonne réponse. 
+
+% Les mauvaises réponses seront comptées négativement. Merci de ne pas utiliser de crayon de papier ni de stylo effaçable et de bien remplir les cases.
+% 
+% \noindent En cas d'erreur, recouvrez complètement la case de blanc correcteur et \textbf{ne la redessinez pas}.
+\medskip
+% \medskip
+\hrule
+\medskip
+% \setlength{\columnseprule}{1pt}
+
+\begin{multicols}{2}
+\setlength\columnsep{0cm}
+
+\cleargroup{everything}
+\cleargroup{fractions}
+\cleargroup{puissances}
+\cleargroup{developpement.factorisation}
+\cleargroup{derivees}
+\cleargroup{exp.ln}
+\cleargroup{racine}
+\cleargroup{signe}
+\cleargroup{trigonometrie}
+\cleargroup{fonctions}
+\cleargroup{intersection.droites}
+
+% Fractions
+\shufflegroup{fractions.numeriques.priorites}\copygroup[1]{fractions.numeriques.priorites}{fractions}
+\shufflegroup{fractions.lettres.simple}\copygroup[1]{fractions.lettres.simple}{fractions}
+\shufflegroup{fractions.lettres}\copygroup[1]{fractions.lettres}{fractions}
+
+% Puissances
+\shufflegroup{puissances.regles}\copygroup[1]{puissances.regles}{puissances}
+\shufflegroup{puissances.simplifications}\copygroup[1]{puissances.simplifications}{puissances}
+\shufflegroup{puissances.simplifications.2variables}\copygroup[1]{puissances.simplifications.2variables}{puissances}
+
+% Développement et factorisation
+\shufflegroup{developpement.factorisation.developpement}\copygroup[1]{developpement.factorisation.developpement}{developpement.factorisation}
+\shufflegroup{developpement.factorisation.factorisation}\copygroup[1]{developpement.factorisation.factorisation}{developpement.factorisation}
+
+% Dérivées usuelles et formules de dérivation
+\shufflegroup{derivees.usuelles.composee}\copygroup[1]{derivees.usuelles.composee}{derivees}
+\shufflegroup{derivees.usuelles.produit.quotient}\copygroup[1]{derivees.usuelles.produit.quotient}{derivees}
+
+% Exponentielle et logarithme
+\shufflegroup{expln.simple}\copygroup[1]{expln.simple}{exp.ln}
+\shufflegroup{expln.moyen}\copygroup[1]{expln.moyen}{exp.ln}
+\shufflegroup{expln.dur}\copygroup[1]{expln.dur}{exp.ln}
+
+% Racines carrées
+\shufflegroup{racine.moyen}\copygroup[1]{racine.moyen}{racine}
+\shufflegroup{racine.simple}\copygroup[1]{racine.simple}{racine}
+
+% Tableaux de signes
+\shufflegroup{signe.polynome}\copygroup[1]{signe.polynome}{signe}
+\shufflegroup{signe.produit.quotient}\copygroup[1]{signe.produit.quotient}{signe}
+
+% Trigonométrie
+\shufflegroup{trigonometrie.valeurs}\copygroup[1]{trigonometrie.valeurs}{trigonometrie}
+\shufflegroup{trigonometrie.lienSinusCosinus}\copygroup[1]{trigonometrie.lienSinusCosinus}{trigonometrie}
+\shufflegroup{trigonometrie.symetries}\copygroup[1]{trigonometrie.symetries}{trigonometrie}
+\shufflegroup{trigonometrie.encadrements}\copygroup[1]{trigonometrie.encadrements}{trigonometrie}
+
+% Autres
+\shufflegroup{autres.variables.muettes}\copygroup[1]{autres.variables.muettes}{fonctions}
+\shufflegroup{autres.variations.polynome}\copygroup[1]{autres.variations.polynome}{fonctions}
+
+% Fonctions affines
+\shufflegroup{droites}\copygroup[1]{droites}{intersection.droites}
+\shufflegroup{droitesbis}\copygroup[1]{droitesbis}{intersection.droites}
+
+% Autres
+\shufflegroup{autres.comparaisons}\copygroup[1]{autres.comparaisons}{everything}
+
+% Développement et factorisation
+\shufflegroup{developpement.factorisation.puissances}\copygroup[1]{developpement.factorisation.puissances}{everything}
+
+
+\copygroup[1]{difficulte.test}{everything}
+
+\shufflegroup{fractions}\insertgroup{fractions}
+\shufflegroup{puissances}\insertgroup{puissances}
+\shufflegroup{developpement.factorisation}\insertgroup{developpement.factorisation}
+\shufflegroup{derivees}\insertgroup{derivees}
+\shufflegroup{exp.ln}\insertgroup{exp.ln}
+\shufflegroup{racine}\insertgroup{racine}
+\shufflegroup{signe}\insertgroup{signe}
+\shufflegroup{trigonometrie}\insertgroup{trigonometrie}
+\shufflegroup{fonctions}\insertgroup{fonctions}
+\shufflegroup{intersection.droites}\insertgroup{intersection.droites}
+\insertgroup{everything}
+\clearpage
+
+\end{multicols}
+
+\end{copieexamen}
+
+
+\end{document}
