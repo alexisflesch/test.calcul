@@ -14,3 +14,5 @@ Alexis Flesch -> AEFL
 Si deux étudiants obtiennent le même code, un chiffre supplémentaire leur est attribué automatiquement et le script vous donne alors la liste des étudiants concernés.
 
 Sur une promo de 600 étudiants, on observe de l'ordre d'une dizaine de doublons seulement avec les paramètres par défaut.
+
+Avant de lancer le script, ouvrez-le et renseignez-y les différents paramètres.
